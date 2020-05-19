@@ -9,8 +9,6 @@ function App() {
         <p>
           Hoai Bao
         </p>
-
-          Learn React
       </header>
     </div>
   );
