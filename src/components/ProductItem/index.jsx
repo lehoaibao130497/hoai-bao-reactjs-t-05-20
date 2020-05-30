@@ -1,6 +1,11 @@
 import React from "react";
 
+
 function ProductItem(props) {
+  const onAddToCart = () =>{
+    props.onAdd(props)
+  }
+
   return (
     <div className="col-xl-4 col-lg-6 col-md-6">
       <div className="product-wrapper mb-50">
@@ -9,7 +14,7 @@ function ProductItem(props) {
             <img src={props.imageURL} alt="" />
           </a>
           <div className="product-action text-center">
-            <a href="#" title="Shoppingb Cart">
+            <a href="#" title="Shoppingb Cart" onClick={onAddToCart} >
               <i className="fas fa-shopping-cart" />
             </a>
             <a href="#" title="Quick View">

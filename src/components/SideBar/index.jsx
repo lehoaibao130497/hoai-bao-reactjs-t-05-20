@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SideBar() {
+function SideBar(props) {
+  const [input ,setInput] = useState("")
+  const onChangeInput = event =>{
+    setInput(event.target.value)
+
+  }
+  const onSubmit = e=>{
+    console.log(input)
+  }
+
   return (
     <>
       {/*SideBar */}
@@ -8,8 +17,8 @@ function SideBar() {
         <div className="sidebar-shop">
           <div className="shop-widget">
             <h3 className="shop-title">Search by</h3>
-            <form action="#" className="shop-search">
-              <input type="text" placeholder="Your keyword...." />
+            <form  className="shop-search" onSubmit={onSubmit}>
+              <input  placeholder="Your keyword...." onChange={onChangeInput}/>
               <button>
                 <i className="fa fa-search" />
               </button>
@@ -27,7 +36,7 @@ function SideBar() {
             <h3 className="shop-title">SHOP BY</h3>
             <ul className="shop-link">
               <li>
-                <a href="#">Name: A-Z</a>
+                <a href="#" onClick={props.sortAZ}>Name: A-Z</a>
               </li>
               <li>
                 <a href="#">Name: Z-A</a>
