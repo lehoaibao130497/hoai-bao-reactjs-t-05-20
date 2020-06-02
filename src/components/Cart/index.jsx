@@ -1,12 +1,14 @@
 import React from "react"
 function Cart(props) {
+  const totalPrice = props.data.reduce((prev, cur) => prev +  cur.price, 0)
+
   return (
     <li className="d-shop-cart"><a href="#"><i className="fas fa-shopping-cart" /> <span className="cart-count">{props.data.length}</span></a>
       <ul className="minicart">
-{props.data.map((elm) => {
-  const onDel =()=>{
-    props.onDel(props)
-  }
+        {props.data.map((elm) => {
+          const onDeleteProduct = () => {
+            props.onDeleteProduct(elm)
+          }
           return (
             <li key={elm.name}>
               <div className="cart-img">
@@ -26,7 +28,7 @@ function Cart(props) {
                 </div>
               </div>
               <div className="del-icon"> 
-                <a onClick={onDel}>
+                <a onClick={onDeleteProduct}>
                   <i className="far fa-trash-alt" />
                 </a>
               </div>
@@ -37,7 +39,7 @@ function Cart(props) {
         <li>
           <div className="total-price">
             <span className="f-left">Total:</span>
-      <span className="f-right">{props.totalPrice}</span>
+      <span className="f-right">{totalPrice}</span>
           </div>
         </li>
         <li>

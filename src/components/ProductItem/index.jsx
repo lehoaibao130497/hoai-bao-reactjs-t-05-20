@@ -3,7 +3,7 @@ import React from "react";
 
 function ProductItem(props) {
   const onAddToCart = () =>{
-    props.onAdd(props)
+    props.onSelectProduct (props)
   }
 
   return (

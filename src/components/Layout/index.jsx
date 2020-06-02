@@ -1,5 +1,5 @@
 import React from 'react'
-import Cart from "../Cart"
+import Cart from '../Cart'
 
 function Layout(props) {
   return (
@@ -60,8 +60,8 @@ function Layout(props) {
                       <a className="search-btn nav-search search-trigger" href="#"><i className="fas fa-search" /></a>
                     </li>
                     <li className="login-btn"><a href="#"><i className="far fa-user" /></a></li>
-                    <Cart  data={props.productsInCart} onDel={props.onDel} totalPrice ={props.totalPrice}/>
-                    </ul>
+                    <Cart data={props.productsInCart} onDeleteProduct={props.onDeleteProduct} />
+                  </ul>
                 </div>
               </div>
               <div className="col-12 d-xl-none">
@@ -72,15 +72,8 @@ function Layout(props) {
         </div>
       </header>
     {/* Body */}
-    <main>
-      <section className="shop-area pt-150 pb-100">
-          <div className="container">
-            <div className="row">
-              {props.children}
-            </div>
-          </div>
-        </section>
-    </main>
+    {props.children}
+    
     <footer className="footer-area pl-100 pr-100">
         <div className="footer-area box-90 pt-100 pb-60" data-background="img/bg/footer.jpg" style={{backgroundImage: 'url("img/bg/footer.jpg")'}}>
           <div className="container">

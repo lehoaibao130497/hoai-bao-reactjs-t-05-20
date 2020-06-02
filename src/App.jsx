@@ -12,39 +12,25 @@ function App() {
   const [products, setProducts] = useState(dataProduct.data)
   const [productsInCart, setProductsInCart] = useState([])
   
-  const onAdd = (propsOfProductItem) => {
+  const onSelectProduct  = (propsOfProductItem) => {
     console.log(propsOfProductItem)
     setProductsInCart([...productsInCart, propsOfProductItem])
 
   }
-  /* () => {
-    return "fghgh"
-  }
-  function a() {
-
-  }
   
-  */ 
-  const onDel = (propsOfProductItem) =>{
-    const productOnDel = productsInCart.filter((item)=>{
-      return item.id !== propsOfProductItem.id
-    });
-    console.log(productOnDel)
-    setProductsInCart(productOnDel);
-  }
   const sortAZ = ()=>{
     console.log("sortAZ")
     const newSortAZ = [...products].sort((a,b) => a.name.localeCompare(b.name))
     setProducts(newSortAZ)
   }
   return (
-    <Layout productsInCart={productsInCart} onDel={onDel}>
+    <Layout productsInCart={productsInCart} >
       <Content>
         {
           products.map(elm => {
             return (
               <ProductItem 
-              {...elm} imageURL={elm.image} onAdd={onAdd}
+              {...elm} imageURL={elm.image} onAdd={onSelectProduct}
               />
             )
           })
